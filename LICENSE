@@ -1,0 +1,630 @@
+Personal Non-Commercial Source-Available License v1.0
+
+Copyright (C) 2025-2026 flickleafy. All Rights Reserved.
+
+SPDX-License-Identifier: LicenseRef-flickleafy-personal-noncommercial-source-available-1.0
+
+This Software is proprietary source-available software. The source code is made
+available only under the limited personal, non-commercial terms below. All
+rights not expressly granted are reserved.
+
+No Commercial Use, Organizational Use, Network Use, public deployment, AI/ML
+Use, sale, sublicensing, or distribution of modified versions is permitted
+without a separate written agreement signed physically or electronically by the
+Copyright Holder or its authorized representative.
+
+1. Definitions
+
+1.1. "flickleafy" means the pseudonymous author and Copyright Holder identified
+for this Software and this License.
+
+1.2. "Copyright Holder" means flickleafy, as pseudonymous author and rights
+holder, and any lawful successor, assignee, or authorized licensing entity.
+
+1.3. "Authorized Representative" means a natural person or legal entity that the
+Copyright Holder has expressly authorized in writing to issue or negotiate
+licenses for the Software.
+
+1.4. "Software" means the source code, object code, documentation, examples,
+test suites, build scripts, configuration files, design materials, user
+interface materials, assets, metadata, and other materials included in this
+repository or distribution, excluding Third-Party Components.
+
+1.5. "You" or "Licensee" means the natural person or legal entity that accesses,
+downloads, copies, modifies, evaluates, or otherwise uses the Software.
+
+1.6. "Natural Person" means an individual human being acting only in that
+individual's personal capacity, and not on behalf of, for the benefit of, under
+the direction of, or using the resources of any Organization.
+
+1.7. "Organization" means any corporation, company, partnership, sole
+proprietorship acting in a business capacity, employer, client, customer,
+government entity, nonprofit entity, foundation, association, school,
+university, research institution, laboratory, club, collective, project group,
+or other legal or organized entity, whether incorporated or not.
+
+1.8. "Authorized Non-Commercial Use" means use by a Natural Person only, solely
+for private study, private evaluation, private experimentation, or non-commercial
+learning, without: (a) Commercial Use; (b) Organizational Use; (c) Network Use;
+(d) AI/ML Use; (e) public deployment; (f) distribution of modified versions;
+(g) direct or indirect revenue, compensation, business advantage, cost savings,
+fundraising, donations, sponsorship, organizational benefit, or professional
+benefit; or (h) service to or for any third party.
+
+1.9. "Commercial Use" means any use that directly or indirectly generates,
+supports, enables, or is connected with revenue, compensation, donations,
+business advantage, cost savings, fundraising, sponsorship, advertising value,
+professional benefit, consulting benefit, market advantage, product development,
+service delivery, internal business operations, or competitive advantage,
+whether monetary or non-monetary.
+
+1.10. "Organizational Use" means any use by, for, at the request of, under the
+control of, on the infrastructure of, using the accounts, devices, funds, data,
+or personnel of, or for the direct or indirect benefit of any Organization.
+Organizational Use requires a separate written agreement unless expressly
+exempted in writing by the Copyright Holder or its Authorized Representative.
+
+1.11. "Network Use" means making the Software, a modified version, a derivative
+work, or any substantial functionality of the Software available to any third
+party or Organization over a network. Network Use includes, without limitation,
+use as a web application, API, hosted service, cloud service, Software-as-a-
+Service, managed service, internal organizational service, bot, automation
+service, remote-access service, or any functionality made available to third
+parties, whether paid or unpaid.
+
+1.12. "AI/ML Use" means using, submitting, scraping, crawling, indexing,
+ingesting, tokenizing, embedding, vectorizing, labeling, annotating, analyzing,
+or processing the Software or any related material for the purpose of creating,
+training, pre-training, fine-tuning, validating, benchmarking, evaluating,
+improving, distilling, prompting, retrieving for, operating, or deploying any
+machine learning, artificial intelligence, code-completion, generative AI,
+embedding, retrieval, vector database, retrieval-augmented generation, or
+automated inference system.
+
+1.13. "Derivative Work" means any work based on, adapted from, modified from,
+translated from, transformed from, or incorporating all or any substantial
+portion of the Software, to the extent such concept is recognized under
+applicable copyright law.
+
+1.14. "Contribution" means any contribution, patch, modification, suggestion,
+code snippet, documentation change, issue comment containing code, pull request,
+configuration, test, design material, or other material intentionally submitted
+to the Copyright Holder for inclusion in, evaluation for, or improvement of the
+Software.
+
+1.15. "Third-Party Components" means third-party software, libraries, packages,
+fonts, assets, datasets, models, or other materials included with or used by the
+Software that are not owned by the Copyright Holder.
+
+2. Ownership and Reservation of Rights
+
+2.1. The Software is owned or controlled by the Copyright Holder. This License
+permits only the limited rights expressly stated in this document. No ownership
+interest, copyright, patent, trademark, trade secret, database right, moral
+right, publicity right, or other intellectual-property right is transferred to
+You.
+
+2.2. Source availability does not imply permission to use the Software beyond the
+scope of this License. All rights not expressly granted are reserved by the
+Copyright Holder.
+
+2.3. No implied license is granted by access to the repository, publication of
+source code, failure to enforce a term, use of a public version-control system,
+or availability of the Software through any package manager, archive, mirror,
+index, search engine, crawler, or hosting platform.
+
+3. Dual Licensing and Commercial Authorization
+
+3.1. This License grants only a limited personal non-commercial license. Any
+Commercial Use, Organizational Use, Network Use, AI/ML Use, public deployment,
+professional service use, sale, lease, rental, sublicensing, or other use not
+expressly permitted by this License requires a separate written agreement signed
+physically or electronically by the Copyright Holder or its Authorized
+Representative.
+
+3.2. Only the Copyright Holder or its Authorized Representative may issue a
+commercial license, organizational license, network-use license, SaaS license,
+professional-services license, support agreement, or other expanded permission.
+No contributor, user, distributor, package maintainer, mirror operator, or third
+party may grant such rights unless expressly authorized in writing by the
+Copyright Holder.
+
+3.3. Patent terms for commercial licenses must be negotiated in the applicable
+commercial agreement. This License does not impose a universal commercial patent
+covenant beyond the rights and restrictions expressly stated in this License and
+any separately signed commercial agreement.
+
+4. Limited Personal Non-Commercial Grant
+
+4.1. Subject to continuous compliance with this License, the Copyright Holder
+grants You, only if You are a Natural Person, a limited, non-exclusive,
+non-transferable, non-sublicensable, royalty-free license to access, download,
+copy, reproduce, and modify a local copy of the Software solely as necessary for
+Authorized Non-Commercial Use.
+
+4.2. This grant is conditioned on Your compliance with all restrictions in this
+License. The License is not generally revocable while You remain in compliance;
+however, it terminates automatically upon breach as stated in Section 16.
+
+4.3. The Copyright Holder may stop publishing, distributing, maintaining,
+updating, supporting, or offering any current or future version of the Software
+at any time. No right is granted to receive future versions, updates, fixes,
+security patches, documentation, support, hosting, maintenance, or professional
+services.
+
+5. Uses Outside the Scope of This License
+
+5.1. The following are outside the scope of this License and are not authorized:
+(a) Commercial Use; (b) Organizational Use; (c) Network Use; (d) AI/ML Use;
+(e) sale, rental, lease, or sublicensing; (f) public deployment; (g) operation
+as a hosted service; (h) use in client work, employment work, consulting,
+freelance work, professional services, internal business tools, R&D,
+fundraising, sponsorship, advertising, or product development; and (i) any use
+for direct or indirect revenue, compensation, donations, business advantage,
+cost savings, fundraising, sponsorship, or professional benefit.
+
+5.2. Any copying, modification, distribution, publication, hosting, public
+deployment, public display, public performance, making available, or creation of
+Derivative Works for Commercial Use, Organizational Use, Network Use, or AI/ML
+Use is outside the scope of this License, is unauthorized, and may constitute
+copyright infringement, contract breach, or other violation under applicable
+law.
+
+5.3. You may not remove, obscure, alter, or falsify any copyright notice,
+license notice, attribution notice, trademark notice, source header, repository
+notice, or provenance information included in the Software.
+
+6. Redistribution and Modified Versions
+
+6.1. You may not distribute, publish, host, mirror, upload, make available,
+sublicense, sell, rent, lease, or provide any modified version or Derivative
+Work of the Software without the Copyright Holder's prior written permission.
+
+6.2. You may not distribute, publish, host, mirror, upload, make available,
+share, sublicense, sell, rent, lease, or provide an unmodified copy of the
+Software to any other person or Organization, except with the Copyright Holder's
+prior direct written permission. Any permission granted under this Section 6.2
+must be express, specific to the permitted recipient and permitted use, and
+signed physically or electronically by the Copyright Holder or its Authorized
+Representative.
+
+6.3. Small excerpts may be shared solely for non-commercial issue reporting,
+security reporting, private discussion, or commentary, provided that such
+sharing does not disclose a substantial portion of the Software, does not enable
+reconstruction of the Software, does not include secrets or credentials, and
+preserves attribution to the Copyright Holder.
+
+7. No AI/ML Use
+
+7.1. You may not engage in AI/ML Use of the Software or any related materials.
+
+7.2. This prohibition includes using the Software, modified versions, Derivative
+Works, documentation, examples, tests, comments, issues, discussions, commits,
+metadata, outputs, logs, screenshots, user interfaces, design materials, or
+generated artifacts to create, train, pre-train, fine-tune, validate, benchmark,
+evaluate, improve, distill, prompt, retrieve for, operate, or deploy any machine
+learning, artificial intelligence, code-completion, generative AI, embedding,
+vector database, retrieval-augmented generation, or automated inference system.
+
+7.3. You may not include the Software or related materials in any dataset,
+benchmark, training corpus, embedding index, model input, model output
+comparison set, synthetic-data pipeline, code-generation system, or automated
+analysis system.
+
+8. Contributions
+
+8.1. The Copyright Holder has no obligation to accept, review, merge, use,
+publish, maintain, or respond to any Contribution.
+
+8.2. Unless a separate written contributor agreement applies, by intentionally
+submitting a Contribution to the Copyright Holder, You grant the Copyright
+Holder a perpetual, worldwide, irrevocable, sublicensable, transferable,
+royalty-free license to use, reproduce, modify, prepare derivative works of,
+publicly display, publicly perform, distribute, commercialize, and relicense the
+Contribution under any terms, including proprietary and commercial terms.
+
+8.3. You represent and warrant that: (a) You have the legal right to submit the
+Contribution; (b) the Contribution does not knowingly infringe or violate any
+third-party rights; (c) the Contribution does not contain malicious code,
+spyware, hidden tracking, credentials, secrets, or unlawfully obtained material;
+and (d) You have disclosed any license terms or third-party rights that may
+apply to the Contribution.
+
+8.4. If You submit a Contribution, You grant the Copyright Holder, its
+sublicensees, downstream licensees, distributors, customers, and authorized users
+a perpetual, worldwide, royalty-free, irrevocable, sublicensable, and transferable
+patent license under patent claims You own or control that are necessarily
+infringed by the Contribution as incorporated into the Software.
+
+9. Patent Non-Assert, Defensive Termination, and Prior Art Notice
+
+9.1. You agree not to assert any patent claim that You own or control against
+the Copyright Holder, its affiliates, contributors, distributors, customers, or
+licensees solely based on their making, using, copying, modifying, distributing,
+offering, selling, importing, hosting, operating, or otherwise exploiting the
+Software or any product or service offered, licensed, or authorized by the
+Copyright Holder that incorporates or is based on the Software.
+
+9.2. If You initiate, maintain, or voluntarily assist any patent infringement
+claim alleging that the Software, a Contribution, an authorized Derivative Work,
+or any authorized use of the Software infringes a patent, then all licenses
+and permissions granted to You under this License terminate automatically as of
+the date such claim is initiated, maintained, or voluntarily assisted.
+
+9.3. Section 9.2 does not apply to a patent counterclaim that is compulsory
+under applicable procedural law and asserted solely as a defensive response to a
+claim first brought against You.
+
+9.4. Nothing in this License grants rights to patents that You do not own or
+control. Nothing in this License gives You permission to file, acquire, license,
+sell, or assert patents in a manner that breaches this License or infringes the
+rights of the Copyright Holder.
+
+9.5. The Copyright Holder may, but is not obligated to, publish timestamped
+releases, maintain version-control history, create signed release tags, archive
+releases, publish package checksums, preserve public timestamps, or make formal
+defensive publications. Such materials, if any, are intended to serve as evidence
+of the public availability and disclosure of the Software as of the applicable
+publication dates. This notice is a factual statement of intent and evidence
+preservation; it is not a contractual determination of patent validity or
+prior-art status in any jurisdiction.
+
+9.6. You agree not to knowingly misrepresent the publication history,
+provenance, timestamps, or public availability of the Software in any patent,
+administrative, judicial, arbitral, or similar proceeding.
+
+10. Third-Party Components
+
+10.1. Third-Party Components are licensed under their own applicable license
+terms. This License applies only to materials owned or licensable by the
+Copyright Holder.
+
+10.2. You are solely responsible for reviewing and complying with all third-party
+licenses before using, modifying, distributing, deploying, or commercializing the
+Software or any project that incorporates the Software.
+
+10.3. The inclusion of Third-Party Components does not grant You any right to use
+the Copyright Holder's Software beyond this License, and this License does not
+attempt to restrict rights that You may have directly from the licensors of
+Third-Party Components.
+
+11. Trademarks, Branding, and No Endorsement
+
+11.1. This License does not grant any right to use the names, trademarks, service
+marks, logos, trade names, domain names, product names, or branding of the
+Copyright Holder, except as strictly necessary to preserve required copyright
+and license notices.
+
+11.2. You may not state or imply that the Copyright Holder endorses, sponsors,
+approves, certifies, maintains, supports, or is affiliated with Your use,
+modification, distribution, product, service, organization, or activity.
+
+12. Prohibited Harmful Uses
+
+12.1. You may not use the Software to develop, deploy, operate, assist, or enable
+malware, spyware, credential theft, phishing, unauthorized surveillance,
+unlawful data collection, cyber abuse, circumvention of access controls,
+unauthorized access, harassment, discrimination, rights-violating profiling,
+weapons systems, safety-critical systems, medical diagnosis or treatment
+systems, emergency-response systems, or any unlawful or rights-violating
+activity.
+
+12.2. This section does not authorize any use otherwise prohibited by this
+License.
+
+13. No Client Relationship, No Support Duty, and Disclaimer of Warranty
+
+13.1. This License is a no-fee personal source-available permission. It is not a
+sale, paid service agreement, outsourcing agreement, consulting agreement,
+professional-services agreement, support agreement, maintenance agreement,
+hosting agreement, consumer supply agreement, or commercialized software
+arrangement by the Copyright Holder.
+
+13.2. You are not a customer or client of the Copyright Holder merely because You
+access, download, copy, evaluate, modify, or use the Software under this
+License. No support, maintenance, update, patch, correction, security fix,
+service-level commitment, customization, hosting, training, operational
+assistance, professional service, or technical assistance is promised or owed
+under this License.
+
+13.3. To the maximum extent permitted by applicable law, the Software is provided
+"as is" and "as available," with all faults and without warranties of any kind,
+whether express, implied, statutory, or otherwise, including warranties of
+merchantability, fitness for a particular purpose, title, non-infringement,
+accuracy, completeness, security, availability, uninterrupted operation,
+error-free operation, compatibility, or absence of harmful components.
+
+13.4. You are solely responsible for evaluating whether the Software is suitable
+for Your intended Authorized Non-Commercial Use and for all risks arising from
+Your access, copying, modification, configuration, execution, testing, or use of
+the Software.
+
+13.5. Nothing in this License excludes or limits liability, warranty, remedy, or
+statutory protection that cannot be excluded or limited under applicable law,
+including liability for fraud, intentional misconduct, gross negligence, or
+mandatory consumer or statutory rights where such rights legally apply.
+
+13.6. Any separate commercial agreement applicable in Brazil shall specify, to
+the extent required by applicable Brazilian law, the licensed version, technical
+duration of the commercialized version, support or supplementary technical
+services, applicable fees, taxes, maintenance scope, and any mandatory rights or
+obligations applicable to a paid commercial software arrangement.
+
+14. Limitation of Liability
+
+14.1. To the maximum extent permitted by applicable law, the Copyright Holder
+shall not be liable for any indirect, incidental, special, consequential,
+exemplary, punitive, reliance, cover, or similar damages, or for loss of
+profits, revenue, goodwill, data, business opportunity, business interruption,
+security incident, hardware failure, software conflict, third-party claim,
+reputational harm, or procurement of substitute goods or services, arising from
+or related to the Software or this License, even if advised of the possibility
+of such damages.
+
+14.2. To the maximum extent permitted by applicable law, because no fee is charged
+by the Copyright Holder under this License, the Copyright Holder assumes no
+monetary liability for use under this License. For any liability that cannot be
+fully excluded, the Copyright Holder's aggregate liability under this License
+shall not exceed the amount You actually paid directly to the Copyright Holder
+for this License, if any.
+
+14.3. The limitations in this Section apply to all theories of liability,
+including contract, tort, negligence, strict liability, statutory liability,
+misrepresentation, restitution, unjust enrichment, and any other legal or
+equitable theory, except to the extent such limitation is prohibited by
+applicable law.
+
+15. Indemnification for Unauthorized Use
+
+15.1. To the maximum extent permitted by applicable law, You agree to indemnify,
+defend, and hold harmless the Copyright Holder from and against any claim,
+liability, damage, loss, cost, fine, penalty, settlement, judgment, and expense,
+including reasonable attorneys' fees, arising from or related to: (a) Your
+breach of this License; (b) Your Commercial Use, Organizational Use, Network
+Use, AI/ML Use, public deployment, or distribution of modified versions without
+proper authorization; (c) Your Contribution; (d) Your violation of third-party
+rights; (e) Your violation of law; or (f) Your modification, integration,
+operation, or use of the Software outside Authorized Non-Commercial Use.
+
+15A. Unauthorized Use Fee, Liquidated Damages, and Supplemental Remedies
+
+15A.1. If You engage in Commercial Use, Organizational Use, Network Use, AI/ML
+Use, public deployment, sublicensing, sale, distribution of modified versions,
+or any other use outside the scope of this License without a separate written
+agreement signed physically or electronically by the Copyright Holder or its
+Authorized Representative, You agree to pay the Copyright Holder an
+unauthorized-use fee.
+
+15A.2. The unauthorized-use fee shall be the greater of: (a) the fees that would
+have been payable under the Copyright Holder's then-current commercial,
+organizational, network-use, SaaS, AI/ML, or equivalent license terms for the
+entire period of unauthorized use; (b) the fair market value of the unauthorized
+license, use, deployment, distribution, or exploitation; or (c) any minimum
+amount stated in a separate written pricing schedule, commercial terms page,
+invoice, order form, or commercial license policy published or provided by the
+Copyright Holder.
+
+15A.3. The parties acknowledge that damages from unauthorized use of source code,
+commercial deployment, organizational adoption, AI/ML ingestion, network use,
+distribution of modified versions, loss of licensing opportunities, loss of
+market exclusivity, loss of control over proprietary software, security review,
+investigation, enforcement, takedown, and reputational harm may be difficult to
+calculate precisely. The unauthorized-use fee is intended as a reasonable
+pre-estimate of harm and reasonable compensation, not as an unenforceable
+penalty.
+
+15A.4. To the maximum extent permitted by applicable law, the unauthorized-use fee
+is without prejudice to the Copyright Holder's right to seek injunctive relief,
+specific performance, takedown, deletion, destruction of unauthorized copies,
+copyright damages, infringer profits, statutory damages where available,
+attorneys' fees, investigation costs, audit costs, collection costs, court costs,
+arbitration costs, expert fees, and any other remedy available under contract,
+copyright, patent, trademark, trade-secret, unfair-competition, civil, criminal,
+or other applicable law.
+
+15A.5. For jurisdictions that treat this section as a liquidated-damages clause,
+the amount recoverable shall be limited to the maximum amount enforceable under
+applicable law. If a court or competent authority finds the amount excessive,
+invalid, or unenforceable, the amount shall be reduced and reformed to the
+maximum enforceable amount that most closely preserves the Copyright Holder's
+economic and protective intent.
+
+15A.6. For Brazil, this section is intended, to the extent applicable, as a
+"cláusula penal compensatória" and as a minimum indemnification amount for
+unauthorized use, with express reservation of supplemental indemnification for
+proven damages exceeding the penalty, to the maximum extent permitted by
+applicable law.
+
+15A.7. Payment of an unauthorized-use fee does not create a license, cure the
+breach, reinstate terminated rights, or authorize continued use of the Software
+unless the Copyright Holder expressly agrees in a separate written agreement.
+
+16. Termination
+
+16.1. This License terminates automatically and immediately if You breach any
+term of this License.
+
+16.2. Upon termination, all rights and permissions granted to You under this
+License cease immediately. You must immediately stop accessing, copying,
+modifying, using, executing, distributing, hosting, making available, or
+otherwise exploiting the Software, and You must delete or destroy all copies of
+the Software in Your possession or control, except to the extent retention is
+required by mandatory law.
+
+16.3. Termination does not limit any rights or remedies available to the
+Copyright Holder for breach, infringement, misappropriation, or other violation.
+
+16.4. Sections that by their nature should survive termination survive,
+including Sections 1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 15A, 17, 18,
+19, 20, 21, 22, 23, and 24.
+
+17. Governing Law, Forum, and Intellectual-Property Enforcement
+
+17.1. Unless a separate written agreement states otherwise, this License is
+governed by the laws of the Federative Republic of Brazil, without regard to
+conflict-of-law rules, except where mandatory law provides otherwise.
+
+17.2. For contractual disputes arising from this License, the parties elect the
+competent courts of the Copyright Holder's legal domicile in Brazil, provided
+that such forum is permitted by applicable procedural law and connected to a
+party, the obligation, or the dispute. If that forum selection is invalid or
+unenforceable, the dispute may be brought in any court of competent
+jurisdiction.
+
+17.3. Nothing in this License limits the Copyright Holder's right to bring claims
+for copyright infringement, patent matters, trademark infringement, trade-secret
+misappropriation, injunctive relief, provisional measures, seizure, takedown,
+or other intellectual-property or equitable relief in any court or forum of
+competent jurisdiction where infringement occurs, where evidence or assets are
+located, or where the defendant is subject to jurisdiction.
+
+17.4. Enforcement in the United States, Brazil, or any other jurisdiction may be
+subject to the copyright, patent, trademark, trade-secret, contract, procedural,
+and remedies laws applicable in that jurisdiction.
+
+18. Severability and Reformation
+
+18.1. If any provision of this License is held invalid, illegal, or unenforceable
+by a court or other competent authority, that provision shall be modified and
+reformed to the minimum extent necessary to make it valid, legal, and
+enforceable while preserving, as closely as legally possible, the original legal,
+economic, and protective intent of the provision.
+
+18.2. If modification is not legally possible, the invalid, illegal, or
+unenforceable portion shall be severed, and the remaining provisions shall remain
+in full force and effect.
+
+19. Waiver
+
+19.1. No failure or delay by the Copyright Holder in exercising any right, power,
+or remedy shall operate as a waiver. No single or partial exercise of any right,
+power, or remedy shall preclude any other or further exercise.
+
+19.2. Any waiver must be express, written, and signed by the Copyright Holder or
+its Authorized Representative. A waiver applies only to the specific instance
+identified and does not waive any future breach or other term.
+
+20. Assignment
+
+20.1. You may not assign, transfer, delegate, sublicense, or otherwise convey
+this License or any rights or obligations under it without the Copyright
+Holder's prior written consent. Any attempted assignment or transfer in
+violation of this section is void.
+
+20.2. The Copyright Holder may assign, transfer, delegate, license, sublicense,
+or otherwise convey its rights, obligations, copyrights, claims, remedies,
+receivables, enforcement rights, licensing program, or administrative authority
+under this License to a successor, affiliate, acquirer, purchaser, corporate
+vehicle, licensing administrator, or Authorized Representative, including in
+connection with incorporation, merger, acquisition, sale of assets,
+reorganization, succession, or appointment of a commercial licensing entity.
+
+21. No Agency
+
+21.1. Nothing in this License creates any partnership, joint venture, fiduciary,
+employment, franchise, agency, client, customer, service-provider, or
+representative relationship between You and the Copyright Holder.
+
+22. Entire Agreement, Precedence, and Separate Commercial Agreements
+
+22.1. This License is the entire agreement between You and the Copyright Holder
+for Authorized Non-Commercial Use of the Software and supersedes all prior or
+contemporaneous statements, summaries, understandings, or communications about
+such use.
+
+22.2. A separate written agreement signed physically or electronically by the
+Copyright Holder or its Authorized Representative may grant additional rights,
+including Commercial Use, Organizational Use, Network Use, support, maintenance,
+warranty, or commercial deployment rights. If such separate agreement expressly
+conflicts with this License, the separate agreement controls only for the rights
+and parties covered by that separate agreement.
+
+22.3. Headings, repository badges, README explanations, FAQs, comments, examples,
+notices, and the non-binding summary in Section 24 are provided for convenience
+only. If any such material conflicts with the operative terms of Sections 1
+through 23, including Section 15A, the operative terms control.
+
+23. Acceptance and Implementation Notices
+
+23.1. By accessing, downloading, copying, cloning, forking, installing,
+modifying, executing, evaluating, referencing, or otherwise using the Software,
+You agree to be bound by this License. If You do not agree to this License, You
+must not access, download, copy, clone, fork, install, modify, execute,
+evaluate, reference, or otherwise use the Software.
+
+23.2. The Copyright Holder may present or reinforce this License through
+repository banners, README notices, package metadata, source-file headers,
+release notes, download pages, clickwrap flows, order forms, invoices, or
+commercial-license checkout flows. The absence, inconsistency, or failure of any
+additional notice does not expand the rights granted under this License or waive
+any rights of the Copyright Holder.
+
+23.3. Recommended repository notice:
+
+    This repository contains proprietary source-available software licensed
+    under the Personal Non-Commercial Source-Available License v1.0. Personal
+    non-commercial use by natural persons only is permitted. Commercial,
+    organizational, network, SaaS, public deployment, AI/ML use, and
+    distribution of modified versions require a separate written agreement from
+    the Copyright Holder.
+
+23.4. Recommended source-file header:
+
+    SPDX-License-Identifier: LicenseRef-flickleafy-personal-noncommercial-source-available-1.0
+    Copyright (C) 2025-2026 flickleafy. All Rights Reserved.
+    This file is licensed under the Personal Non-Commercial Source-Available
+    License v1.0. See the LICENSE file for details.
+
+23.5. Recommended package metadata license value:
+
+    LicenseRef-flickleafy-personal-noncommercial-source-available-1.0
+
+23.6. Recommended commercial-license flow:
+
+    Before any Commercial Use, Organizational Use, Network Use, SaaS deployment,
+    public deployment, professional service use, or other expanded use, require
+    a separate written agreement signed physically or electronically by the
+    Copyright Holder or its Authorized Representative. For online order flows,
+    use an affirmative checkbox or equivalent clickwrap mechanism that requires
+    the licensee to accept the applicable commercial terms before access,
+    delivery, activation, or deployment.
+
+24. Commercial Licensing Contact and Non-Binding Summary
+
+24.1. To request a commercial, organizational, network-use, SaaS, professional,
+or other expanded license, contact:
+
+    [inbox]
+
+Only the Copyright Holder or its Authorized Representative may issue such a
+license.
+
+24.2. Non-binding plain-language summary:
+
+    - This Software is proprietary source-available software.
+    - Copyright (C) 2025-2026 flickleafy. All Rights Reserved.
+    - Personal use is allowed only for Natural Persons and only for private
+      study, private evaluation, private experimentation, or non-commercial
+      learning.
+    - Organizations may not use the Software without a separate written
+      agreement.
+    - Commercial Use, Organizational Use, Network Use, SaaS use, public
+      deployment, professional service use, and business use are not permitted
+      under this License.
+    - Modified versions and Derivative Works may not be distributed without
+      prior written permission from the Copyright Holder.
+    - AI/ML Use is prohibited.
+    - Unauthorized use may require payment of an unauthorized-use fee,
+      liquidated damages, supplemental remedies, enforcement costs, and other
+      available remedies to the maximum extent permitted by applicable law.
+    - Patent aggression against the Software or authorized uses can terminate
+      Your rights under this License.
+    - The Software is provided as is, without support, maintenance, services, or
+      warranties under this no-fee personal license, to the maximum extent
+      permitted by applicable law.
+    - Commercial or expanded rights require a separate written agreement signed
+      physically or electronically by the Copyright Holder or its Authorized
+      Representative.
+
+24.3. This summary is not an additional license grant. If the summary conflicts
+with Sections 1 through 23, including Section 15A, the operative terms control.
