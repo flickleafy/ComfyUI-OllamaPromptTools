@@ -70,8 +70,6 @@ Required inputs:
 - `repeat_penalty`
 - `presence_penalty`
 - `seed`
-- `thinking`
-- `strip_thinking`
 - `keep_alive`
 - `timeout_seconds`
 - `model_override`
@@ -109,7 +107,7 @@ Examples:
 
 The node extracts content inside `<think>...</think>` blocks into the second output, `thinking_stream`. Closed and unclosed `<think>` sections are both handled.
 
-The code currently cleans `<think>` tags out of `generated_text` before returning it, even when the `strip_thinking` widget is disabled. In practice, treat `thinking_stream` as the place where reasoning-like content is preserved and `generated_text` as the cleaned text output.
+The code cleans `<think>` tags out of `generated_text` before returning it. In practice, treat `thinking_stream` as the place where reasoning-like content is preserved and `generated_text` as the cleaned text output.
 
 ### Output Quality Guardrails
 
