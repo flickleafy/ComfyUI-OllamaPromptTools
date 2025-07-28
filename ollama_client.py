@@ -313,11 +313,12 @@ def build_options(
     return options
 
 
-def build_generate_payload(model, prompt, system_prompt, images, keep_alive, options, stream=False):
+def build_generate_payload(model, prompt, system_prompt, images, thinking, keep_alive, options, stream=False):
     payload = {
         "model": model,
         "prompt": prompt,
         "stream": bool(stream),
+        "think": bool(thinking),
         "options": options,
     }
     if system_prompt:

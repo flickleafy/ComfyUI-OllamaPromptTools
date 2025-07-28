@@ -5,6 +5,8 @@ ComfyUI Ollama Prompt Tools is a custom ComfyUI node package for local prompt ge
 ## What This Repository Contains
 
 - A ComfyUI custom node that connects to a local Ollama server.
+- A small frontend extension that updates node widget defaults when task presets change.
+- Unit tests for the node logic and Ollama client behavior.
 
 ## Main Features
 
@@ -15,6 +17,7 @@ ComfyUI Ollama Prompt Tools is a custom ComfyUI node package for local prompt ge
 - Automatic retry when Ollama returns unusably short or long content.
 - Safe fallback to the original prompt when Ollama errors, refuses, or returns unusable output.
 - Separate `thinking_stream` output extracted from `<think>...</think>` content.
+- Frontend preset syncing so changing `task_preset` refreshes recommended generation parameters.
 
 ## Repository Layout
 
@@ -24,6 +27,11 @@ ComfyUI Ollama Prompt Tools is a custom ComfyUI node package for local prompt ge
 ├── __init__.py
 ├── nodes.py
 ├── ollama_client.py
+├── web/
+│   └── ollama_preview.js
+├── tests/
+│   ├── test_nodes.py
+│   └── test_ollama_client.py
 ```
 
 ## ComfyUI Node
@@ -70,6 +78,8 @@ Required inputs:
 - `repeat_penalty`
 - `presence_penalty`
 - `seed`
+- `thinking`
+- `strip_thinking`
 - `keep_alive`
 - `timeout_seconds`
 - `model_override`
@@ -107,7 +117,7 @@ Examples:
 
 The node extracts content inside `<think>...</think>` blocks into the second output, `thinking_stream`. Closed and unclosed `<think>` sections are both handled.
 
-The code cleans `<think>` tags out of `generated_text` before returning it. In practice, treat `thinking_stream` as the place where reasoning-like content is preserved and `generated_text` as the cleaned text output.
+The code currently cleans `<think>` tags out of `generated_text` before returning it, even when the `strip_thinking` widget is disabled. In practice, treat `thinking_stream` as the place where reasoning-like content is preserved and `generated_text` as the cleaned text output.
 
 ### Output Quality Guardrails
 
@@ -118,6 +128,17 @@ The Ollama client enforces a response-length window before accepting generated c
 - Maximum attempts: 3.
 
 Outputs outside that range trigger retries. If all attempts fail or the request errors, the node falls back to the original prompt.
+
+## Frontend Extension
+
+The frontend script at `web/ollama_preview.js` hooks ComfyUI node registration and watches the `task_preset` widget. When the preset changes, it applies a matching parameter profile to the node widgets and marks the graph canvas dirty so the UI refreshes immediately.
+
+The frontend preset profiles mirror the profiles in `nodes.py`:
+
+- `custom`
+- `image_to_prompt`
+- `enhance_prompt_polish`
+- `enhance_prompt_creative`
 
 ## Ollama Client Details
 
@@ -149,6 +170,10 @@ The runtime code imports:
 
 - `numpy`
 - `Pillow`
+
+The tests additionally import:
+
+- `torch`
 
 ComfyUI itself provides the Comfy-specific runtime imports such as `comfy`, `server`, and `comfy.comfy_types.node_typing`.
 
@@ -204,6 +229,30 @@ For image-to-prompt workflows, also pull a vision-capable model that Ollama repo
 
 - Use `enhance_prompt_polish` for cleaner, more controlled rewrites.
 - Use `enhance_prompt_creative` for more stylized and embellished rewrites.
+
+## Testing
+
+The repository includes unit tests for both the node logic and the Ollama client behavior.
+
+Run the Python tests from the repository root:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The test suite covers:
+
+- task preset normalization
+- preset-optimized parameter overrides
+- custom sampling preservation
+- system prompt selection
+- fallback delimiter extraction
+- thinking-stream extraction
+- payload construction
+- model resolution
+- retry behavior for short and long outputs
+- streaming progress event emission
+- vision capability checks
 
 ## Known Behavior Notes
 

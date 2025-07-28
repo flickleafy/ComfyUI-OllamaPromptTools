@@ -40,6 +40,8 @@ class OllamaNodePresetTests(unittest.TestCase):
             repeat_penalty=5.0,
             presence_penalty=5.0,
             seed=123,
+            thinking=False,
+            strip_thinking=False,
             keep_alive="1s",
             timeout_seconds=1,
         )
@@ -47,6 +49,7 @@ class OllamaNodePresetTests(unittest.TestCase):
         self.assertEqual(settings["num_predict"], 4096)
         self.assertEqual(settings["temperature"], 0.25)
         self.assertEqual(settings["presence_penalty"], 0.2)
+        self.assertTrue(settings["thinking"])
         self.assertEqual(settings["keep_alive"], "15m")
         self.assertEqual(settings["timeout_seconds"], 300)
 
@@ -62,6 +65,8 @@ class OllamaNodePresetTests(unittest.TestCase):
             repeat_penalty=5.0,
             presence_penalty=5.0,
             seed=123,
+            thinking=True,
+            strip_thinking=False,
             keep_alive="1s",
             timeout_seconds=1,
         )
@@ -69,6 +74,8 @@ class OllamaNodePresetTests(unittest.TestCase):
         self.assertEqual(settings["num_predict"], 12)
         self.assertEqual(settings["temperature"], 2.0)
         self.assertEqual(settings["presence_penalty"], 5.0)
+        self.assertTrue(settings["thinking"])
+        self.assertFalse(settings["strip_thinking"])
         self.assertEqual(settings["keep_alive"], "1s")
         self.assertEqual(settings["timeout_seconds"], 1)
 
@@ -131,6 +138,8 @@ class OllamaNodePresetTests(unittest.TestCase):
                 repeat_penalty=0.0,
                 presence_penalty=0.0,
                 seed=42,
+                thinking=True,
+                strip_thinking=True,
                 keep_alive="1s",
                 timeout_seconds=1,
                 model_override="",
@@ -151,6 +160,7 @@ class OllamaNodePresetTests(unittest.TestCase):
         self.assertEqual(captured["payload"]["options"]["num_predict"], 4096)
         self.assertEqual(captured["payload"]["options"]["temperature"], 0.85)
         self.assertEqual(captured["payload"]["options"]["presence_penalty"], 0.6)
+        self.assertTrue(captured["payload"]["think"])
         self.assertTrue(captured["payload"]["stream"])
         self.assertIn("creative flair", captured["payload"]["system"])
 
@@ -176,6 +186,8 @@ class OllamaNodePresetTests(unittest.TestCase):
                 repeat_penalty=0.0,
                 presence_penalty=0.0,
                 seed=-1,
+                thinking=False,
+                strip_thinking=True,
                 keep_alive="1s",
                 timeout_seconds=1,
                 model_override="",
@@ -211,6 +223,8 @@ class OllamaNodePresetTests(unittest.TestCase):
                 repeat_penalty=0.0,
                 presence_penalty=0.0,
                 seed=-1,
+                thinking=False,
+                strip_thinking=True,
                 keep_alive="1s",
                 timeout_seconds=1,
                 model_override="",
@@ -246,6 +260,8 @@ class OllamaNodePresetTests(unittest.TestCase):
                 repeat_penalty=0.0,
                 presence_penalty=0.0,
                 seed=-1,
+                thinking=True,
+                strip_thinking=True,
                 keep_alive="1s",
                 timeout_seconds=1,
                 model_override="",
@@ -281,6 +297,8 @@ class OllamaNodePresetTests(unittest.TestCase):
                 repeat_penalty=0.0,
                 presence_penalty=0.0,
                 seed=-1,
+                thinking=False,
+                strip_thinking=False,
                 keep_alive="1s",
                 timeout_seconds=1,
                 model_override="",
@@ -294,7 +312,7 @@ class OllamaNodePresetTests(unittest.TestCase):
         self.assertEqual(result["result"][0], "fallback prompt")
         self.assertEqual(result["result"][1], "")
 
-    def test_node_main_returns_clean_text_and_thinking_stream(self):
+    def test_node_main_keeps_generated_text_usable_when_strip_thinking_is_false(self):
         original_generate_text_streaming = nodes.generate_text_streaming
 
         def fake_generate_text_streaming(host, payload, timeout_seconds=120, progress_callback=None):
@@ -316,6 +334,8 @@ class OllamaNodePresetTests(unittest.TestCase):
                 repeat_penalty=0.0,
                 presence_penalty=0.0,
                 seed=-1,
+                thinking=True,
+                strip_thinking=False,
                 keep_alive="1s",
                 timeout_seconds=1,
                 model_override="",

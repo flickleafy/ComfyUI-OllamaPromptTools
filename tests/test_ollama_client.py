@@ -365,6 +365,7 @@ class OllamaClientTests(unittest.TestCase):
             "prompt",
             "",
             [],
+            True,
             "",
             {"num_predict": 8},
         )
@@ -374,6 +375,7 @@ class OllamaClientTests(unittest.TestCase):
                 "model": "model",
                 "prompt": "prompt",
                 "stream": False,
+                "think": True,
                 "options": {"num_predict": 8},
             },
         )
@@ -383,12 +385,14 @@ class OllamaClientTests(unittest.TestCase):
             "prompt",
             "system",
             ["image"],
+            False,
             "10m",
             {"num_predict": 8},
         )
         self.assertEqual(payload["system"], "system")
         self.assertEqual(payload["images"], ["image"])
         self.assertEqual(payload["keep_alive"], "10m")
+        self.assertFalse(payload["think"])
 
 
 if __name__ == "__main__":
