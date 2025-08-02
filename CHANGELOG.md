@@ -1,5 +1,15 @@
 # Changelog
 
+## 2025-08-01
+
+Latest updates:
+
+- Added semantic placeholder injection for prompt templates, including placeholder parsing, embedding-based matching, weighted lexical boosts, and default fallback blocks before Ollama generation.
+- Extended the Ollama Generate Text node with placeholder template, embedding model, and similarity threshold inputs to resolve prompt placeholders during request preparation.
+- Increased the maximum generated word limit to better accommodate the expanded prompt composition flow.
+- Expanded README documentation for placeholder-driven prompt enhancement, dependency requirements, and matcher behavior.
+- Added regression coverage for placeholder parsing and resolution along with node-level placeholder workflow behavior.
+
 ## 2025-07-27
 
 Latest updates:

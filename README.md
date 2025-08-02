@@ -13,6 +13,7 @@ ComfyUI Ollama Prompt Tools is a custom ComfyUI node package for local prompt ge
 - Local Ollama text generation from inside ComfyUI.
 - Task presets for image-to-prompt, polished prompt enhancement, and creative prompt enhancement.
 - Optional image input with explicit vision-model validation before request submission.
+- Semantic placeholder injection for prompt templates before Ollama generation.
 - Streaming generation with ComfyUI progress text updates.
 - Automatic retry when Ollama returns unusably short or long content.
 - Safe fallback to the original prompt when Ollama errors, refuses, or returns unusable output.
@@ -27,6 +28,7 @@ ComfyUI Ollama Prompt Tools is a custom ComfyUI node package for local prompt ge
 ├── __init__.py
 ├── nodes.py
 ├── ollama_client.py
+├── placeholder_matching.py
 ├── web/
 │   └── ollama_preview.js
 ├── tests/
@@ -89,6 +91,9 @@ Required inputs:
 Optional inputs:
 
 - `delimiter`
+- `placeholder_templates`
+- `placeholder_embedding_model`
+- `placeholder_similarity_threshold`
 - `image`
 
 Hidden input:
@@ -102,6 +107,62 @@ The node builds an Ollama `/api/generate` request and streams the response back 
 If `image` is connected, the node first validates that the chosen model advertises `vision` capability through Ollama `/api/show`. If the `image_to_prompt` preset is selected without an image input, the node raises a validation error before contacting Ollama.
 
 If the Ollama request fails, if the model produces an empty or refusal-style answer, or if the output is otherwise judged unusable, the node does not hard-fail the workflow. Instead, it falls back to the original prompt and returns that prompt as `generated_text`.
+
+### Semantic Placeholder Injection
+
+The node can resolve uppercase placeholders in the base prompt before sending the request to Ollama. This is useful when a static instruction prompt is concatenated with a dynamic image description and only some extra rules should be injected for matching subjects.
+
+Use `placeholder_templates` to provide candidate and default blocks:
+
+```text
+[PLACEHOLDER_OBJECTIVE]
+@match: wooden boats, ships, harbor rigging, maritime scene
+@weight: boat=4, boats=4, ship=3, harbor=2
+@require_any: boat, boats, ship
+Use extra historically accurate boat and ship details.
+
+---
+
+[PLACEHOLDER_OBJECTIVE]
+@match: portrait, person, studio lighting, skin texture
+@weight: portrait=4, person=3, face=2
+@require_any: portrait, person, face
+Use extra portrait lighting and skin texture details.
+
+---
+
+[PLACEHOLDER_OBJECTIVE_DEFAULT]
+Preserve the visible subject and scene faithfully.
+```
+
+In the main `prompt`, place the matching marker where the selected block should be inserted:
+
+```text
+Primary objective:
+[PLACEHOLDER_OBJECTIVE]
+
+Prompt: the image shows wooden boats in a harbor
+```
+
+The node uses the existing `delimiter` to split the prompt before matching:
+
+- Text before `delimiter` is the base prompt where placeholders are replaced.
+- Text after `delimiter` is the semantic query used to choose the best candidate block.
+- If the delimiter is missing or empty, the full prompt is used as both base prompt and semantic query.
+
+Candidate blocks use the same label as the base marker, such as `[PLACEHOLDER_OBJECTIVE]`. Default fallback blocks use `_DEFAULT`, such as `[PLACEHOLDER_OBJECTIVE_DEFAULT]`. If no candidate clears `placeholder_similarity_threshold`, the default block is injected. If neither a matching candidate nor a default block exists, the node raises a clear placeholder error before contacting Ollama.
+
+Placeholder labels must be uppercase with optional digits and underscores, enclosed in square brackets. Blocks end at the next placeholder header, a `---` separator line, or the end of the templates text.
+
+Candidate blocks can include private metadata lines before the prompt body:
+
+- `@match:` adds concise semantic descriptions used for embedding-based matching.
+- `@weight:` adds weighted exact terms, such as `person=4, portrait=1`, that can boost subject or object matches.
+- `@require_any:` requires at least one listed term to appear in the semantic query before that block can be selected.
+
+These metadata lines are stripped before placeholder replacement, so they are never sent to Ollama as part of the composed prompt. If a candidate has no `@match:` metadata, the matcher uses the visible block body after filtering repeated boilerplate lines shared across candidates/defaults for the same placeholder label. Low-priority instruction lines starting with phrases such as `avoid`, `do not`, `mute`, `remove`, or `replace` are ignored when more specific positive lines are available.
+
+Semantic matching uses local sentence-transformer embeddings on CPU combined with optional weighted lexical scoring. The default model is `sentence-transformers/all-MiniLM-L6-v2`, and candidate embeddings are cached for repeated executions with the same template text.
 
 ### Fallback and Delimiter Semantics
 
@@ -153,6 +214,8 @@ The Python client in `ollama_client.py` is responsible for:
 - Logging success and failure messages with timing information.
 - PNG encoding for ComfyUI image tensors before submission to vision-capable models.
 
+The placeholder resolver in `placeholder_matching.py` is responsible for parsing placeholder template blocks, loading sentence-transformer embeddings lazily, caching template embeddings, and materializing the final prompt before Ollama generation.
+
 The default model can be set locally through `OLLAMA_MODEL` in a repo-local `.env` file. The checked-in example configuration uses `llava:13b`.
 
 ## Installation
@@ -170,6 +233,7 @@ The runtime code imports:
 
 - `numpy`
 - `Pillow`
+- `sentence-transformers` when `placeholder_templates` is used
 
 The tests additionally import:
 
@@ -189,7 +253,7 @@ ComfyUI itself provides the Comfy-specific runtime imports such as `comfy`, `ser
 Example dependency install:
 
 ```bash
-pip install numpy pillow
+pip install numpy pillow sentence-transformers
 ```
 
 Example local model configuration:
@@ -230,6 +294,15 @@ For image-to-prompt workflows, also pull a vision-capable model that Ollama repo
 - Use `enhance_prompt_polish` for cleaner, more controlled rewrites.
 - Use `enhance_prompt_creative` for more stylized and embellished rewrites.
 
+### Placeholder-Driven Prompt Enhancement
+
+1. Put placeholders such as `[PLACEHOLDER_OBJECTIVE]` in the base prompt.
+2. Connect or enter the full placeholder block list in `placeholder_templates`.
+3. Keep the concatenated image description after the configured `delimiter`.
+4. Add `[PLACEHOLDER_OBJECTIVE_DEFAULT]` and similar default blocks for every placeholder label that can appear in the base prompt.
+5. Prefer `@match`, `@weight`, and `@require_any` metadata when the visible block contains broad instructions that should not drive matching.
+6. Adjust `placeholder_similarity_threshold` only if matches are too broad or too strict.
+
 ## Testing
 
 The repository includes unit tests for both the node logic and the Ollama client behavior.
@@ -247,6 +320,7 @@ The test suite covers:
 - custom sampling preservation
 - system prompt selection
 - fallback delimiter extraction
+- semantic placeholder parsing and resolution
 - thinking-stream extraction
 - payload construction
 - model resolution

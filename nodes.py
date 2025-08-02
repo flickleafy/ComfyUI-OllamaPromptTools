@@ -18,6 +18,11 @@ from .ollama_client import (
     resolve_model,
     strip_think_tags,
 )
+from .placeholder_matching import (
+    DEFAULT_PLACEHOLDER_EMBEDDING_MODEL,
+    DEFAULT_PLACEHOLDER_SIMILARITY_THRESHOLD,
+    materialize_prompt_placeholders,
+)
 
 
 IMAGE_TO_PROMPT_SYSTEM = """You are an expert visual analyst and prompt extractor. Convert the input image into a dense, precise, hierarchical description that can be reused as a high-quality image generation prompt. Describe only visually supported information, separate observation from interpretation, and prioritize concrete attributes over vague adjectives. At the end, synthesize the details into a generation-ready prompt."""
@@ -380,6 +385,25 @@ class OllamaGenerateText:
             },
             "optional": {
                 "delimiter": (IO.STRING, {"default": DEFAULT_PASSTHROUGH_DELIMITER, "multiline": False}),
+                "placeholder_templates": (IO.STRING, {"default": "", "multiline": True}),
+                "placeholder_embedding_model": (
+                    "STRING",
+                    {
+                        "default": DEFAULT_PLACEHOLDER_EMBEDDING_MODEL,
+                        "multiline": False,
+                        "advanced": True,
+                    },
+                ),
+                "placeholder_similarity_threshold": (
+                    "FLOAT",
+                    {
+                        "default": DEFAULT_PLACEHOLDER_SIMILARITY_THRESHOLD,
+                        "min": 0.0,
+                        "max": 1.0,
+                        "step": 0.01,
+                        "advanced": True,
+                    },
+                ),
                 "image": (IO.IMAGE,),
             },
             "hidden": {
@@ -415,6 +439,9 @@ class OllamaGenerateText:
         model_override,
         ollama_host,
         system_prompt,
+        placeholder_templates="",
+        placeholder_embedding_model=DEFAULT_PLACEHOLDER_EMBEDDING_MODEL,
+        placeholder_similarity_threshold=DEFAULT_PLACEHOLDER_SIMILARITY_THRESHOLD,
         image=None,
         delimiter=DEFAULT_PASSTHROUGH_DELIMITER,
         unique_id=None,
@@ -444,6 +471,16 @@ class OllamaGenerateText:
         progress.phase("Ollama: preparing request", value=0)
 
         try:
+            if (placeholder_templates or "").strip():
+                progress.phase("Ollama: resolving prompt placeholders")
+                final_prompt = materialize_prompt_placeholders(
+                    final_prompt,
+                    placeholder_templates,
+                    delimiter,
+                    embedding_model=placeholder_embedding_model,
+                    similarity_threshold=placeholder_similarity_threshold,
+                )
+
             images = []
             if image is not None:
                 progress.phase(f"Ollama: checking vision support for {selected_model}")
