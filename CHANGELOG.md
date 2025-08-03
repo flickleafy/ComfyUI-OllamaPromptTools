@@ -1,5 +1,14 @@
 # Changelog
 
+## 2025-08-02
+
+Latest updates:
+
+- Added ordered placeholder embedding model choices to the Ollama Generate Text node so stronger semantic matchers are exposed directly in the UI.
+- Kept the placeholder embedding workflow default on `intfloat/e5-base-v2` for compatibility while adding stronger selectable models.
+- Updated README documentation to describe the new embedding model ordering and selection behavior for placeholder matching.
+- Added regression coverage for placeholder embedding model option ordering and widget configuration.
+
 ## 2025-08-01
 
 Latest updates:

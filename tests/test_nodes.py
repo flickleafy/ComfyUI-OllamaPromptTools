@@ -104,6 +104,26 @@ class OllamaNodePresetTests(unittest.TestCase):
             "metadata Prompt: final prompt",
         )
 
+    def test_input_types_offer_placeholder_embedding_model_choices_in_strength_order(self):
+        original_get_model_names = nodes.get_model_names
+        try:
+            nodes.get_model_names = lambda timeout_seconds=1: [TEST_MODEL]
+            input_types = package.NODE_CLASS_MAPPINGS["OllamaGenerateText"].INPUT_TYPES()
+            options, config = input_types["optional"]["placeholder_embedding_model"]
+        finally:
+            nodes.get_model_names = original_get_model_names
+
+        self.assertEqual(
+            options,
+            [
+                "intfloat/e5-base-v2",
+                "BAAI/bge-small-en-v1.5",
+                "sentence-transformers/all-MiniLM-L6-v2",
+            ],
+        )
+        self.assertEqual(config["default"], "intfloat/e5-base-v2")
+        self.assertTrue(config["advanced"])
+
     def test_thinking_stream_extracts_closed_and_unclosed_think_blocks(self):
         self.assertEqual(
             nodes._extract_thinking_stream("<think>first step</think>usable text<think>second step"),

@@ -162,7 +162,7 @@ Candidate blocks can include private metadata lines before the prompt body:
 
 These metadata lines are stripped before placeholder replacement, so they are never sent to Ollama as part of the composed prompt. If a candidate has no `@match:` metadata, the matcher uses the visible block body after filtering repeated boilerplate lines shared across candidates/defaults for the same placeholder label. Low-priority instruction lines starting with phrases such as `avoid`, `do not`, `mute`, `remove`, or `replace` are ignored when more specific positive lines are available.
 
-Semantic matching uses local sentence-transformer embeddings on CPU combined with optional weighted lexical scoring. The default model is `sentence-transformers/all-MiniLM-L6-v2`, and candidate embeddings are cached for repeated executions with the same template text.
+Semantic matching uses local sentence-transformer embeddings on CPU combined with optional weighted lexical scoring. The selectable embedding models are ordered from stronger to weakest: `intfloat/e5-base-v2`, `BAAI/bge-small-en-v1.5`, and `sentence-transformers/all-MiniLM-L6-v2`. The default remains `intfloat/e5-base-v2` for workflow compatibility, and candidate embeddings are cached for repeated executions with the same template text.
 
 ### Fallback and Delimiter Semantics
 

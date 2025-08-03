@@ -4,7 +4,12 @@ import re
 from dataclasses import dataclass, field
 
 
-DEFAULT_PLACEHOLDER_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_PLACEHOLDER_EMBEDDING_MODEL = "intfloat/e5-base-v2"
+PLACEHOLDER_EMBEDDING_MODEL_OPTIONS = [
+    DEFAULT_PLACEHOLDER_EMBEDDING_MODEL,
+    "BAAI/bge-small-en-v1.5",
+    "sentence-transformers/all-MiniLM-L6-v2"
+]
 DEFAULT_PLACEHOLDER_SIMILARITY_THRESHOLD = 0.34
 LOG_PREFIX = "[ComfyUI-OllamaPromptTools]"
 

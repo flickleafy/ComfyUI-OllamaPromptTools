@@ -21,6 +21,7 @@ from .ollama_client import (
 from .placeholder_matching import (
     DEFAULT_PLACEHOLDER_EMBEDDING_MODEL,
     DEFAULT_PLACEHOLDER_SIMILARITY_THRESHOLD,
+    PLACEHOLDER_EMBEDDING_MODEL_OPTIONS,
     materialize_prompt_placeholders,
 )
 
@@ -387,10 +388,9 @@ class OllamaGenerateText:
                 "delimiter": (IO.STRING, {"default": DEFAULT_PASSTHROUGH_DELIMITER, "multiline": False}),
                 "placeholder_templates": (IO.STRING, {"default": "", "multiline": True}),
                 "placeholder_embedding_model": (
-                    "STRING",
+                    PLACEHOLDER_EMBEDDING_MODEL_OPTIONS,
                     {
                         "default": DEFAULT_PLACEHOLDER_EMBEDDING_MODEL,
-                        "multiline": False,
                         "advanced": True,
                     },
                 ),
